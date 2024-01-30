@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import HomeData from "../../../data/home.json";
 import Brand from "../../../components/brand/index";
 
 const BrandContainer = () => {
+    const [data, setData] = useState(null);
+    
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await fetch('https://technovasyon.pythonanywhere.com/api/v1/brands');
+            if (!response.ok) {
+              throw new Error('Failed to fetch data');
+            }
+            const result = await response.json();
+            setData(result);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        };
+    
+        fetchData();
+    }, []);
+    
     const swiperOption = {
         loop: true,
         speed: 800,
@@ -11,7 +30,7 @@ const BrandContainer = () => {
             delay: 2000,
         },
         slidesPerView: 4,
-        spaceBetween: 0,
+        spaceBetween: 40,
         pagination: false,
         navigation: false,
         // Responsive breakpoints
@@ -41,11 +60,11 @@ const BrandContainer = () => {
                 <div className="row">
                     <div className="col-12">
                         <Swiper className="brand-carousel" {...swiperOption}>
-                            {HomeData[1].brand &&
-                                HomeData[1].brand.map((single, key) => {
+                            {data &&
+                                data.map((single, key) => {
                                     return (
                                         <SwiperSlide key={key}>
-                                            <Brand key={key} data={single} />
+                                            <Brand key={key} data={single} classOption={"d-flex justify-content-center align-items-center"} />
                                         </SwiperSlide>
                                     );
                                 })}

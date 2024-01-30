@@ -25,18 +25,18 @@ const CustomForm = ({ status, message, onValidated }) => {
                     id="mc-email"
                     className="form-control"
                     type="email"
-                    placeholder="Enter Email here"
+                    placeholder="Email giriniz"
                     name="mail"
                     onChange={(e) => inputChangedHandler(e)}
                     ref={(node) => (email = node)}
                 />
                 <button className="search-btn" type="submit" onClick={submit}>
-                    Subscribe
+                    abone ol
                 </button>
             </form>
             {status === "sending" && (
                 <div style={{ color: "#3498db", fontSize: "12px" }}>
-                    sending...
+                    gönderiliyor...
                 </div>
             )}
             {status === "error" && (

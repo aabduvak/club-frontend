@@ -4,6 +4,8 @@ import Logo from "../../components/logo";
 import SocialIcon from "../../components/social-icon";
 
 const Footer = () => {
+    const currentYear = new Date().getFullYear();
+    
     return (
         <footer className="footer-section">
             <div className="footer-top position-relative">
@@ -18,32 +20,14 @@ const Footer = () => {
                             <div className="footer-widget">
                                 <Logo
                                     classOption="footer-logo mb-9"
-                                    image={`${process.env.PUBLIC_URL}/images/logo/logo-footer.png`}
+                                    image={`${process.env.PUBLIC_URL}/images/logo/logo.png`}
                                 />
-                                <p>
-                                    Pleasure rationally encounter consequences
-                                    that extremely painful. Nor again is there
-                                </p>
                                 <ul className="footer-social-links">
                                     <li>
                                         <SocialIcon
                                             classOption="footer-social-link"
-                                            path="https://www.facebook.com/"
-                                            icon="icofont-facebook"
-                                        />
-                                    </li>
-                                    <li>
-                                        <SocialIcon
-                                            classOption="footer-social-link"
-                                            path="https://www.instagram.com/"
+                                            path="https://www.instagram.com/technovasyonn"
                                             icon="icofont-instagram"
-                                        />
-                                    </li>
-                                    <li>
-                                        <SocialIcon
-                                            classOption="footer-social-link"
-                                            path="https://twitter.com/"
-                                            icon="icofont-twitter"
                                         />
                                     </li>
                                     <li>
@@ -53,12 +37,19 @@ const Footer = () => {
                                             icon="icofont-whatsapp"
                                         />
                                     </li>
+                                    <li>
+                                        <SocialIcon
+                                            classOption="footer-social-link"
+                                            path="mailto:info@technovasyon.com"
+                                            icon="icofont-email"
+                                        />
+                                    </li>
                                 </ul>
                             </div>
                         </div>
-                        <div className="col-lg-3 col-sm-6 mb-7 offset-xl-1">
+                        <div className="offset-lg-3 col-lg-3 col-sm-6 mb-7">
                             <div className="footer-widget">
-                                <h4 className="title">Quick Link</h4>
+                                <h4 className="title">Sayfalar</h4>
                                 <ul className="footer-menu">
                                     <li>
                                         <Link
@@ -68,39 +59,17 @@ const Footer = () => {
                                                 "/about"
                                             }
                                         >
-                                            About us
+                                            Hakkımızda
                                         </Link>
                                     </li>
                                     <li>
                                         <Link
                                             className="footer-link"
                                             to={
-                                                process.env.PUBLIC_URL +
-                                                "/service"
+                                                process.env.PUBLIC_URL + "/blog-right-sidebar"
                                             }
                                         >
-                                            Pricing Plan
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link
-                                            className="footer-link"
-                                            to={
-                                                process.env.PUBLIC_URL +
-                                                "/about"
-                                            }
-                                        >
-                                            Conditions
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link
-                                            className="footer-link"
-                                            to={
-                                                process.env.PUBLIC_URL + "/blog"
-                                            }
-                                        >
-                                            Blog Post
+                                            Etkinlikler
                                         </Link>
                                     </li>
                                     <li>
@@ -110,7 +79,7 @@ const Footer = () => {
                                                 process.env.PUBLIC_URL + "/team"
                                             }
                                         >
-                                            Our Clients
+                                            Ekibimiz
                                         </Link>
                                     </li>
                                     <li>
@@ -121,13 +90,13 @@ const Footer = () => {
                                                 "/contact"
                                             }
                                         >
-                                            Contact us
+                                            İletişim
                                         </Link>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                        <div className="col-lg-2 col-sm-6 mb-7">
+                        {/*<div className="col-lg-2 col-sm-6 mb-7">
                             <div className="footer-widget">
                                 <h4 className="title">Services</h4>
                                 <ul className="footer-menu">
@@ -199,44 +168,28 @@ const Footer = () => {
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div>*/}
                         <div className="col-lg-3 col-sm-6 mb-7">
                             <div className="footer-widget">
-                                <h4 className="title">Contact info</h4>
+                                <h4 className="title">İletişim Bilgileri</h4>
                                 <p>
-                                    245 Southern Street, Apt. 147 New York, USA
+                                    Altunizade, Üniversite Sok. No:14, 34662 Üsküdar/İstanbul
                                 </p>
                                 <ul className="address">
                                     <li>
                                         <a
                                             className="address-link"
-                                            href="tel:+12354569874"
+                                            href="mailto:info@technovasyon.com"
                                         >
-                                            +12354 569 874
+                                            info@technovasyon.com
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             className="address-link"
-                                            href="tel:+98745612398"
+                                            href="mailto:info@technovasyon.com"
                                         >
-                                            +98745 612 398
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            className="address-link"
-                                            href="mailto:info@example.com"
-                                        >
-                                            info@example.com
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            className="address-link"
-                                            href="mailto:info@example.com"
-                                        >
-                                            www.example.com
+                                            www.technovasyon.com
                                         </a>
                                     </li>
                                 </ul>
@@ -251,16 +204,8 @@ const Footer = () => {
                         <div className="col-12">
                             <div className="copyright-info text-center">
                                 <p>
-                                    Copyright &copy; 2021 Made with{" "}
-                                    <i className="icofont-heart-alt"></i> By{" "}
-                                    <a
-                                        href="https://themeforest.net/user/codecarnival/portfolio"
-                                        target="_blank"
-                                        rel="noreferrer"
-                                    >
-                                        codecarnival
-                                    </a>
-                                    , All Rights Reserved
+                                    Copyright &copy; {currentYear} Made with{" "}
+                                    <i className="icofont-heart-alt"></i>
                                 </p>
                             </div>
                         </div>

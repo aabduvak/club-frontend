@@ -1,8 +1,5 @@
 import { useEffect, useRef } from "react";
 import SectionTitle from "../../../components/section-title";
-import { Swiper, SwiperSlide } from "swiper/react";
-import Testimonial from "../../../components/testimonial";
-import HomeData from "../../../data/home.json";
 import SwiperCore, { Navigation } from "swiper";
 import Parallax from "parallax-js";
 
@@ -13,10 +10,6 @@ const TestimonialContainer = () => {
         speed: 1000,
         slidesPerView: 1,
         spaceBetween: 0,
-        navigation: {
-            nextEl: ".testimonial-carousel .swiper-button-next",
-            prevEl: ".testimonial-carousel .swiper-button-prev",
-        },
     };
     const sceneEl = useRef(null);
 
@@ -56,38 +49,21 @@ const TestimonialContainer = () => {
                         <div className="testimonial-wrap">
                             <SectionTitle
                                 classOption="title-section"
-                                subTitle="TESTIMONIALS"
-                                title="Don’t Believe us Check <span class='text-primary'>Clients</span> word"
+                                subTitle="Hakkımızda"
+                                title="Vizyon ve Misyonumuz"
                             />
-                            <h5 className="happy-customer">
-                                More over{" "}
-                                <span className="font-weight-bold">2500</span>{" "}
-                                happy customer
-                            </h5>
-                        </div>
-                        <div className="testimonial-carousel position-relative">
-                            <Swiper {...swiperOption}>
-                                {HomeData[3].testimonial &&
-                                    HomeData[3].testimonial.map(
-                                        (single, key) => {
-                                            return (
-                                                <SwiperSlide key={key}>
-                                                    <Testimonial
-                                                        key={key}
-                                                        data={single}
-                                                    />
-                                                </SwiperSlide>
-                                            );
-                                        }
-                                    )}
-                            </Swiper>
-                            <div className="swiper-button-prev">
-                                <i className="icofont-rounded-left"></i>prev
-                            </div>
-                            <div className="swiper-button-next">
-                                Next
-                                <i className="icofont-rounded-right"></i>
-                            </div>
+                            <p>
+                                Vizyonumuz
+                                <br />
+                                Ülkemizi başta teknoloji ve mühendislik alanlarında olmak üzere
+                                birçok alanda küresel çapta en iyi seviyeye getirmek üzere,
+                                &quot;Milli Teknoloji Hamlesi&quot; çatısı altında çalışmalar yürütmek ve projeler üretmek.
+                            </p>
+                            <p>
+                                Misyonumuz
+                                <br />
+                                Uluslararası niteliklerde, sektörde öncü olabilecek, teorik ve uygulama becerisi yüksek olan ve bu becerilerini tasarım, üretim, uygulama ve AR-GE çalışmalarında başarılı bir biçimde kullanabilen, analitik düşünebilen, ortak çalışma yapabilecek bireyler yetiştirmesine katkı sağlamak
+                            </p>
                         </div>
                     </div>
                 </div>

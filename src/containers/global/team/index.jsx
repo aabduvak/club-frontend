@@ -1,11 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Button from "../../../components/button";
 import SectionTitle from "../../../components/section-title";
 import Team from "../../../components/team";
-import HomeData from "../../../data/home.json";
 
 const TeamContainer = ({ classOption }) => {
+    const [data, setData] = useState(null);
+    
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await fetch('https://technovasyon.pythonanywhere.com/api/v1/team-short');
+            if (!response.ok) {
+              throw new Error('Failed to fetch data');
+            }
+            const result = await response.json();
+            setData(result);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        };
+    
+        fetchData();
+    }, []);
+    
     return (
         <div className={`team-section overflow-hidden ${classOption}`}>
             <div className="container position-relative">
@@ -14,26 +32,25 @@ const TeamContainer = ({ classOption }) => {
                         <div className="team-content-wrap">
                             <SectionTitle
                                 classOption="title-section"
-                                subTitle="TEAM"
-                                title="People, <span class='text-primary'>Behind</span> the Screen"
+                                subTitle="EKİBİMİZ"
+                                title="Perde <span class='text-primary'>Arkasındaki</span> İnsanlar"
                                 excerptClassOption="mb-5"
-                                excerpt="Pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain"
+                                excerpt="Biz, çeşitli yeteneklere sahip ve teknolojiye tutkulu bir ekip olarak bir araya geldik. Kulübümüzün yönetiminde liderlik edenlerden, etkinlikleri organize edenlere kadar, her birimiz kendi alanımızda uzmanız ve aynı hedefe doğru ilerliyoruz."
                             />
                             <p className="high-light mb-8">
-                                Pleasure rationally encounter consequences that
-                                are extremely painful. Nor again is there
+                                
                             </p>
                             <Button
                                 classOption="btn btn-lg btn-dark btn-hover-dark"
-                                text="View more"
+                                text="Daha Fazla"
                                 path="/team"
                             />
                         </div>
                     </div>
                     <div className="col-lg-7">
                         <div className="new-team-members">
-                            {HomeData[5].team &&
-                                HomeData[5].team.map((single, key) => {
+                            {data &&
+                                data.map((single, key) => {
                                     return <Team key={key} data={single} />;
                                 })}
                         </div>

@@ -4,31 +4,29 @@ import PropTypes from "prop-types";
 import { slugify } from "../../utils";
 
 const BlogGrid = ({ data, classOption }) => {
+    const publishedDate = new Date(data.published_at);
+    
+    const options = {
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+        timeZone: 'Europe/Istanbul'
+      };
+      
+    const formattedPushlishDate = publishedDate.toLocaleDateString('tr-TR', options);
+    
     return (
         <div className="blog-card">
             <div className={`thumb bg-light text-center ${classOption}`}>
                 <Link to={process.env.PUBLIC_URL + `/blog-details/${data.id}`}>
                     <img
-                        src={`${process.env.PUBLIC_URL}/${data.media.gridImage}`}
+                        src={`${data.media.gridImage}`}
                         alt="img"
                     />
                 </Link>
             </div>
             <div className="blog-content">
-                <Link
-                    to={
-                        process.env.PUBLIC_URL +
-                        `/author/${slugify(data.author)}`
-                    }
-                >
-                    <span className="blog-meta author">{data.author}</span>
-                </Link>
-                <span className="separator">-</span>
-                <Link
-                    to={process.env.PUBLIC_URL + `/date/${slugify(data.date)}`}
-                >
-                    <span className="blog-meta date">{data.date}</span>
-                </Link>
+                <span className="blog-meta date">{formattedPushlishDate}</span>
                 <h3 className="title">
                     <Link
                         to={process.env.PUBLIC_URL + `/blog-details/${data.id}`}

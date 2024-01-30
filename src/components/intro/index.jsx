@@ -19,7 +19,7 @@ const Intro = ({ data }) => {
         <div className="hero-slider">
             <div className="container">
                 <div className="row align-items-center">
-                    <div className="col-lg-6">
+                    <div className="col-lg-7">
                         <div className="hero-slide-content">
                             <h2
                                 className="title animated"
@@ -27,17 +27,12 @@ const Intro = ({ data }) => {
                             ></h2>
                             <Button
                                 classOption="btn btn-lg animated delay1 btn-dark btn-hover-dark me-4 mb-3 mb-sm-0"
-                                text="Get Started"
-                                path="/about"
-                            />
-                            <Button
-                                classOption="btn btn-lg animated delay2 btn-secondary btn-hover-secondary mb-3 mb-sm-0"
-                                text="Book a Meeting"
-                                path="/contact"
+                                text="Kayıt Formu"
+                                path="https://forms.gle/cbm7PwyVw9wXM5ZV7"
                             />
                         </div>
                     </div>
-                    <div className="col-lg-6">
+                    <div className="col-lg-5">
                         <div
                             className="hero-img scene mt-10 mt-lg-0"
                             id="scene"
@@ -46,7 +41,7 @@ const Intro = ({ data }) => {
                             <div data-depth="0.2">
                                 <img
                                     className="animated"
-                                    src={`${process.env.PUBLIC_URL}/${data.image}`}
+                                    src={`${data.image}`}
                                     alt=""
                                 />
                             </div>

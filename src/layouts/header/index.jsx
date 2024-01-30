@@ -32,7 +32,10 @@ const Header = () => {
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col">
-                            <div className="header-logo">
+                            <div 
+                                className="header-logo" 
+                                style={{ width: "40%" }}
+                                >    
                                 <Logo
                                     classOption="d-block"
                                     image={`${process.env.PUBLIC_URL}/images/logo/logo.png`}

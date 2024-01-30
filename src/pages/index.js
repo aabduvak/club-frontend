@@ -19,14 +19,12 @@ const HomePage = () => {
     return (
         <React.Fragment>
             <Layout>
-                <SEO title="Buznex – Business React JS Template" />
+                <SEO title="Technovasyon - Üsküdar Üniversitesi Teknoloji Kulübü" />
                 <div className="wrapper">
                     <Header />
                     <IntroContainer />
                     <BrandContainer />
-                    <IconBoxContainer classOption="section-pb" />
                     <HomeAboutContainer />
-                    <ServiceListContainer />
                     <TestimonialContainer />
                     <FunFactContainer classOption="mt-10 mt-lg-0" />
                     <TeamContainer classOption="section-pb" />

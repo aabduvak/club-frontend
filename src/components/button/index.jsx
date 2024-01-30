@@ -2,11 +2,13 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import React from "react";
 
-const Button = ({ classOption, text, path }) => {
+const Button = ({ classOption, text, path}) => {
+    const isExternalLink = path.startsWith("http");
+
     return (
         <React.Fragment>
             <Link
-                to={process.env.PUBLIC_URL + path}
+                to={{pathname: isExternalLink ? path : process.env.PUBLIC_URL + path}}
                 className={`${classOption}`}
             >
                 {text}

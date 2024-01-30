@@ -1,17 +1,35 @@
-import React from "react";
+import React, {useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Funfact from "../../../components/funfact";
-import HomeData from "../../../data/home.json";
 
 const FunFactContainer = ({ classOption }) => {
+    const [data, setData] = useState(null);
+    
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await fetch('https://technovasyon.pythonanywhere.com/api/v1/facts');
+            if (!response.ok) {
+              throw new Error('Failed to fetch data');
+            }
+            const result = await response.json();
+            setData(result);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        };
+    
+        fetchData();
+    }, []);
+    
     return (
         <div
             className={`funfact-section section-pb position-relative ${classOption}`}
         >
             <div className="container">
                 <div className="row mb-n7">
-                    {HomeData[4].funfact &&
-                        HomeData[4].funfact.map((single, key) => {
+                    {data &&
+                        data.map((single, key) => {
                             return (
                                 <div key={key} className="col-md-3 col-6 mb-7">
                                     <Funfact data={single} key={key} />
