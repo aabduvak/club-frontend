@@ -1,82 +1,74 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-const CustomForm = ({ status, message, onValidated }) => {
-    let email;
-    const submit = (e) => {
-        e.preventDefault();
-        email &&
-            email.value.indexOf("@") > -1 &&
-            onValidated({
-                EMAIL: email.value,
+const CustomForm = () => {
+    const [showModal, setShowModal] = useState(false);
+    const toggle = () => setShowModal(!showModal);
+    
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch("https://technovasyon.pythonanywhere.com/api/v1/newsletter", {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: formData,
             });
-        let emailInput = document.getElementById("mc-email");
-        emailInput.value = "";
+
+            if (response.ok) {
+                setShowModal(true);
+                form.reset();
+            } else {
+                console.error("Error:", response.statusText);
+            }
+        } catch (error) {
+            console.error("Error:", error);
+        }
     };
-    // Change Handaler
-    const inputChangedHandler = (e) => {
-        console.log(e.target.value);
-    };
+    
     return (
         <Fragment>
-            <form className="news-letter-form d-flex">
+            <form className="news-letter-form d-flex" onSubmit={handleSubmit}>
                 <input
-                    id="mc-email"
+                    id="email"
                     className="form-control"
                     type="email"
                     placeholder="Email giriniz"
                     name="mail"
-                    onChange={(e) => inputChangedHandler(e)}
-                    ref={(node) => (email = node)}
+                    required
                 />
-                <button className="search-btn" type="submit" onClick={submit}>
+                <button className="search-btn" type="submit" >
                     abone ol
                 </button>
             </form>
-            {status === "sending" && (
-                <div style={{ color: "#3498db", fontSize: "12px" }}>
-                    gönderiliyor...
-                </div>
-            )}
-            {status === "error" && (
-                <div
-                    style={{ color: "#e74c3c", fontSize: "12px" }}
-                    dangerouslySetInnerHTML={{ __html: message }}
-                />
-            )}
-            {status === "success" && (
-                <div
-                    style={{ color: "#2ecc71", fontSize: "12px" }}
-                    dangerouslySetInnerHTML={{ __html: message }}
-                />
+            
+            {showModal && (
+                <Modal isOpen={showModal}>
+                    <ModalHeader toggle={toggle}>Bülten Aboneliği</ModalHeader>
+                    <ModalBody>
+                        Tebrikler 🎉<br />Haberler bültenine abone oldunuz!
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button color="primary" onClick={toggle}>
+                            Kapat
+                        </Button>
+                    </ModalFooter>
+              </Modal>
             )}
         </Fragment>
     );
 };
 
-CustomForm.propTypes = {
-    status: PropTypes.oneOf(["sending", "error", "success"]),
-    message: PropTypes.string,
-    onValidated: PropTypes.func,
-};
 const Newsletter = (props) => {
     return (
-        <MailchimpSubscribe
-            url={props.mailchimpUrl}
-            render={({ subscribe, status, message }) => (
-                <CustomForm
-                    status={status}
-                    message={message}
-                    onValidated={(formData) => subscribe(formData)}
-                />
-            )}
-        />
+        <CustomForm />
     );
-};
-
-Newsletter.propTypes = {
-    mailchimpUrl: PropTypes.string,
 };
 
 export default Newsletter;

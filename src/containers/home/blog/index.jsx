@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import BlogData from "../../../data/blog.json";
 import SectionTitleTwo from "../../../components/section-title-two";
 import BlogGrid from "../../../components/blog";
 
@@ -9,7 +8,7 @@ const HomeBlog = () => {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await fetch('https://technovasyon.pythonanywhere.com/api/v1/blogs');
+            const response = await fetch('https://technovasyon.pythonanywhere.com/api/v1/events');
             if (!response.ok) {
               throw new Error('Failed to fetch data');
             }

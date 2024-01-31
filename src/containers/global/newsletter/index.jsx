@@ -11,12 +11,12 @@ const NewsletterArea = () => {
                         <SectionTitle
                             classOption="title-section mb-10 text-center"
                             subTitle="BÜLTEN"
-                            title="Haberler <span class='text-primary'>Bültenine</span> &amp;
+                            title="Haberler <span class='text-primary'>Bültenine</span>
                             <br class='d-none d-xl-block' /> Abone Olun"
                         />
                     </div>
                     <div className="col-xl-8 col-lg-10 mx-auto">
-                        <Newsletter mailchimpUrl="http://technovasyon.us21.list-manage.com/subscribe/post?u=3a3c44fa0765cfc84a0b2f784&amp;id=82208fe521&amp;f_id=0011ebe6f0" />
+                        <Newsletter />
                     </div>
                 </div>
             </div>

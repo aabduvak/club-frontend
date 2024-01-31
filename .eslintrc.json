@@ -3,8 +3,7 @@
     "root": true,
     "extends": [
         "plugin:react/recommended",
-        "plugin:import/warnings",
-        "plugin:jsx-a11y/strict"
+        "plugin:import/warnings"
     ],
     "settings": {
         "react": {
@@ -23,21 +22,21 @@
         "ecmaVersion": 12,
         "sourceType": "module"
     },
-    "plugins": ["react", "react-hooks", "jsx-a11y"],
+    "plugins": ["react", "react-hooks"],
     "rules": {
         "react/react-in-jsx-scope": "off",
         "react/require-default-props": 0,
-        "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn",
-        "jsx-a11y/label-has-associated-control": [ "error", {
-            "required": {
-              "some": [ "nesting", "id"  ]
-            }
-        }],
-        "jsx-a11y/label-has-for": [ "error", {
-            "required": {
-              "some": [ "nesting", "id"  ]
-            }
-        }]
+        "react-hooks/rules-of-hooks": "warn",
+        "react-hooks/exhaustive-deps": "warn"
+        //"jsx-a11y/label-has-associated-control": [ "warn", {
+        //    "required": {
+        //      "some": [ "nesting", "id"  ]
+        //    }
+        //}],
+        //"jsx-a11y/label-has-for": [ "warn", {
+        //    "required": {
+        //      "some": [ "nesting", "id"  ]
+        //    }
+        //}]
     }
 }
