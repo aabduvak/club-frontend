@@ -4,7 +4,7 @@ const TeamCard = ({ data }) => {
     return (
         <div className="team-card">
             <div className="thumb">
-                <img src={process.env.PUBLIC_URL + data.thumb} alt="img" />
+                <img src={data.photo} alt="img" style={{borderRadius: '50%'}} />
             </div>
             <div className="content">
                 <h3 className="title">{data.name}</h3>

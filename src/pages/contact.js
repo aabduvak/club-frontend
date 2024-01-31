@@ -12,13 +12,12 @@ const ContactPage = () => {
     return (
         <React.Fragment>
             <Layout>
-                <SEO title="Buznex – Contact" />
+                <SEO title="İletişim - Üsküdar Üniversitesi Teknoloji Kulübü" />
                 <div className="wrapper">
                     <Header />
                     <PageBanner
-                        title="Contact us"
-                        excerpt="Pleasure rationally encounter consequences <br />
-                        are extremely painful great oppurtunity"
+                        title="İletişim Bilgilerimiz"
+                        excerpt=""
                         image="./images/contact/1.png"
                     />
                     <ContactContainer />

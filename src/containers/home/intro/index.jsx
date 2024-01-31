@@ -38,7 +38,7 @@ const IntroContainer = () => {
             {data ? (
                 <Intro data={data[0]} />
                 ) : (
-                <p>Loading...</p>
+                <p></p>
             )}
             
         </div>

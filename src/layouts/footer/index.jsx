@@ -66,7 +66,7 @@ const Footer = () => {
                                         <Link
                                             className="footer-link"
                                             to={
-                                                process.env.PUBLIC_URL + "/blog-right-sidebar"
+                                                process.env.PUBLIC_URL + "/blog"
                                             }
                                         >
                                             Etkinlikler

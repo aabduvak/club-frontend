@@ -1,17 +1,42 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { useForm } from "react-hook-form";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const ContactForm = () => {
-    const { register, errors } = useForm({
-        mode: "onBlur",
-    });
+    const [showModal, setShowModal] = useState(false);
+    const toggle = () => setShowModal(!showModal);
+    
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch("https://technovasyon.pythonanywhere.com/api/v1/message", {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: formData,
+            });
+
+            if (response.ok) {
+                setShowModal(true);
+                form.reset();
+            } else {
+                console.error("Error:", response.statusText);
+            }
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    };
+
     return (
         <Fragment>
             <form
                 id="contactForm"
                 className="row"
-                action="https://getform.io/f/a17a2715-d7ee-4ac4-8fcb-12f1eed43b2c"
-                method="POST"
+                onSubmit={handleSubmit}
             >
                 <div className="col-12 col-sm-6 mb-7">
                     <input
@@ -19,27 +44,19 @@ const ContactForm = () => {
                         className="form-control"
                         id="name"
                         name="name"
-                        placeholder="Your Name*"
-                        ref={register({ required: "Name is required" })}
+                        placeholder="Adınız*"
+                        required
                     />
-                    {errors.name && <p>{errors.name.message}</p>}
                 </div>
                 <div className="col-12 col-sm-6 mb-7">
                     <input
-                        type="text"
+                        type="email"
                         className="form-control"
                         id="email"
                         name="email"
-                        placeholder="Your Email*"
-                        ref={register({
-                            required: "Email is required",
-                            pattern: {
-                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                                message: "invalid email address",
-                            },
-                        })}
+                        placeholder="Email*"
+                        required
                     />
-                    {errors.email && <p>{errors.email.message}</p>}
                 </div>
 
                 <div className="col-12 mb-9">
@@ -49,24 +66,36 @@ const ContactForm = () => {
                         id="massage"
                         cols="30"
                         rows="10"
-                        placeholder="Message"
-                        ref={register({
-                            required: "Message is required",
-                        })}
+                        placeholder="Mesaj"
+                        required
                     ></textarea>
-                    {errors.message && <p>{errors.message.message}</p>}
                 </div>
                 <div className="col-12">
                     <button
                         id="contactSubmit"
                         type="submit"
                         className="btn btn-dark btn-hover-dark"
-                        data-complete-text="Well Done!"
+                        data-complete-text="Gönderildi!"
                     >
-                        Send Message
+                        Gönder
                     </button>
                 </div>
             </form>
+                       
+            {showModal && (
+                <Modal isOpen={showModal}>
+                    <ModalHeader toggle={toggle}>Mesaj Gönderimi</ModalHeader>
+                
+                    <ModalBody>
+                        Mesajiniz başarılı bir şekilde gönderildi! Sizinle en kisa zamanda iletişime geçeceğiz.
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button color="primary" onClick={toggle}>
+                            kapat
+                        </Button>
+                    </ModalFooter>
+              </Modal>
+            )}
         </Fragment>
     );
 };

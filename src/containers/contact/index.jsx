@@ -11,13 +11,9 @@ const ContactContainer = () => {
                 <div className="row mb-n7">
                     <div className="col-xl-6 col-lg-6 mb-7">
                         <div className="contact-title-section">
-                            <h3 className="title">Get in touch</h3>
+                            <h3 className="title">Bizimle İletişime Geçin</h3>
                             <p>
-                                Top rated construction packages we pleasure
-                                rationally encounter
-                                <br className="d-none d-xl-block" />
-                                consequences interesting who loves or pursue or
-                                desires
+                                Teknoloji Kulübü hakkında daha fazla bilgi almak, etkinliklerimize katılmak veya herhangi bir sorunuzu iletmek için bizimle iletişime geçmekten çekinmeyin. İletişim formunu doldurarak veya doğrudan aşağıdaki iletişim bilgilerinden bize ulaşabilirsiniz.
                             </p>
                         </div>
 

@@ -1,14 +1,31 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import TeamCard from "../../components/team-card";
-import TeamData from "../../data/team.json";
 
 const TeampPageContainer = () => {
+    const [data, setData] = useState(null);
+    
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await fetch('https://technovasyon.pythonanywhere.com/api/v1/teams');
+            if (!response.ok) {
+              throw new Error('Failed to fetch data');
+            }
+            const result = await response.json();
+            setData(result);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        };
+    
+        fetchData();
+    }, []);
     return (
         <div className="service-section section-py">
             <div className="container">
                 <div className="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 mb-n7">
-                    {TeamData &&
-                        TeamData.map((single, key) => {
+                    {data &&
+                        data.map((single, key) => {
                             return (
                                 <div
                                     key={key}

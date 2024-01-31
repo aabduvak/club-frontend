@@ -23,29 +23,21 @@ const AboutContainer = () => {
                         <div className="about-content">
                             <SectionTitle
                                 classOption="title-section"
-                                subTitle="ABOUT US"
-                                title="Best <span class='text-primary'>
-                                    Digital Agency</span>
-                                <br className='d-none d-xl-block' />
-                                in the Town"
+                                subTitle="HAKKIMIZDA"
+                                title="Üsküdar Üniversitesi 
+                                <span class='text-primary'>
+                                    Teknoloji
+                                </span> Kulübü"
                             />
                             <span className="date-meta">
-                                Scince 2001 <span className="hr"></span>
+                                Kuruluş: 2020<span className="hr"></span>
                             </span>
                             <p className="mb-5">
-                                Pleasure rationally encounter consequences that
-                                are extremely painful. Nor again is there anyone
-                                who loves or pursues or desires to obtain
+                                2020 yılı Ekim ayında kurulan Üsküdar Üniversitesi Teknoloji Kulübü, kurulduğu yıldan itibaren alanında uzman birbirinden değerli konuşmacılar, eğitimciler ve katılımcılarla birçok etkinlik düzenleyerek üniversitemizin en büyük kulüplerinden biri haline gelmiştir.
                             </p>
                             <p className="high-light mb-8">
-                                Pleasure rationally encounter consequences that
-                                are extremely painful. Nor again is there
+                                Yapılan etkinlikler ve eğitimlerle geleceğine yön vermek isteyen öğrencileri bir araya getiren kulübümüz, okul içinde ve dışında etkin faaliyet göstererek çeşitli alanlarda projeler üretmektedir.
                             </p>
-                            <Button
-                                classOption="btn btn-lg btn-dark btn-hover-dark"
-                                text="Learn more"
-                                path="/about"
-                            />
                         </div>
                     </div>
                     <div className="col-xl-6 order-lg-first col-md-6 mb-7">

@@ -12,13 +12,12 @@ const TeamPage = () => {
     return (
         <React.Fragment>
             <Layout>
-                <SEO title="Buznex – Team" />
+                <SEO title="Ekibimiz - Üsküdar Üniversitesi Teknoloji Kulübü" />
                 <div className="wrapper">
                     <Header />
                     <PageBanner
-                        title="Our Team"
-                        excerpt="Pleasure rationally encounter consequences <br />
-                        are extremely painful great oppurtunity"
+                        title="Perde Arkasındaki İnsanlar"
+                        excerpt="Biz, çeşitli yeteneklere sahip ve teknolojiye tutkulu bir ekip olarak bir araya geldik. Kulübümüzün yönetiminde liderlik edenlerden, etkinlikleri organize edenlere kadar, her birimiz kendi alanımızda uzmanız ve aynı hedefe doğru ilerliyoruz."
                         image="./images/team/5.png"
                     />
                     <TeampPageContainer />

@@ -13,10 +13,6 @@ const TestimonialReverse = () => {
         speed: 1000,
         slidesPerView: 1,
         spaceBetween: 0,
-        navigation: {
-            nextEl: ".testimonial-carousel .swiper-button-next",
-            prevEl: ".testimonial-carousel .swiper-button-prev",
-        },
     };
 
     const sceneEl = useRef(null);
@@ -38,38 +34,21 @@ const TestimonialReverse = () => {
                         <div className="testimonial-wrap">
                             <SectionTitle
                                 classOption="title-section"
-                                subTitle="TESTIMONIALS"
-                                title="Don’t Believe us Check <span class='text-primary'>Clients</span> word"
+                                subTitle="Hakkımızda"
+                                title="Vizyon ve Misyonumuz"
                             />
-                            <h5 className="happy-customer">
-                                More over{" "}
-                                <span className="font-weight-bold">2500</span>{" "}
-                                happy customer
-                            </h5>
-                        </div>
-                        <div className="testimonial-carousel position-relative">
-                            <Swiper {...swiperOption}>
-                                {HomeData[3].testimonial &&
-                                    HomeData[3].testimonial.map(
-                                        (single, key) => {
-                                            return (
-                                                <SwiperSlide key={key}>
-                                                    <Testimonial
-                                                        key={key}
-                                                        data={single}
-                                                    />
-                                                </SwiperSlide>
-                                            );
-                                        }
-                                    )}
-                            </Swiper>
-                            <div className="swiper-button-prev">
-                                <i className="icofont-rounded-left"></i>prev
-                            </div>
-                            <div className="swiper-button-next">
-                                Next
-                                <i className="icofont-rounded-right"></i>
-                            </div>
+                            <p>
+                                <span className="text-primary fw-bold">Vizyonumuz</span>
+                                <br />
+                                Ülkemizi başta teknoloji ve mühendislik alanlarında olmak üzere
+                                birçok alanda küresel çapta en iyi seviyeye getirmek üzere,
+                                &quot;Milli Teknoloji Hamlesi&quot; çatısı altında çalışmalar yürütmek ve projeler üretmek.
+                            </p>
+                            <p>
+                                <span className="text-primary fw-bold">Misyonumuz</span>
+                                <br />
+                                Uluslararası niteliklerde, sektörde öncü olabilecek, teorik ve uygulama becerisi yüksek olan ve bu becerilerini tasarım, üretim, uygulama ve AR-GE çalışmalarında başarılı bir biçimde kullanabilen, analitik düşünebilen, ortak çalışma yapabilecek bireyler yetiştirmesine katkı sağlamak
+                            </p>
                         </div>
                     </div>
                     <div className="col-xl-7 col-lg-6 mb-7">

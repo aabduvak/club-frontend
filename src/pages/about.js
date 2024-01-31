@@ -17,19 +17,16 @@ const AboutPage = () => {
     return (
         <React.Fragment>
             <Layout>
-                <SEO title="Buznex – About" />
+                <SEO title="Hakkımızda - Üsküdar Üniversitesi Teknoloji Kulübü" />
                 <div className="wrapper">
                     <Header />
                     <PageBanner
-                        title="About us"
-                        excerpt="Pleasure rationally encounter consequences <br /> are extremely painful
-                        great oppurtunity"
+                        title="Technovasyon"
+                        excerpt="2020 yılı Ekim ayında kurulan Üsküdar Üniversitesi Teknoloji Kulübü, kurulduğu yıldan itibaren alanında uzman birbirinden değerli konuşmacılar, eğitimciler ve katılımcılarla birçok etkinlik düzenleyerek üniversitemizin en büyük kulüplerinden biri haline gelmiştir."
                         image="./images/banner/1.png"
                     />
-                    <IconBoxContainer classOption="section-pt" />
                     <BrandContainer />
                     <AboutContainer />
-                    <ServiceListContainer />
                     <TestimonialReverse />
                     <FunFactContainer classOption="mt-0 mt-lg-0" />
                     <NewsletterArea />

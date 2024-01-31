@@ -53,14 +53,14 @@ const TestimonialContainer = () => {
                                 title="Vizyon ve Misyonumuz"
                             />
                             <p>
-                                Vizyonumuz
+                                <span className="text-primary fw-bold">Vizyonumuz</span>
                                 <br />
                                 Ülkemizi başta teknoloji ve mühendislik alanlarında olmak üzere
                                 birçok alanda küresel çapta en iyi seviyeye getirmek üzere,
                                 &quot;Milli Teknoloji Hamlesi&quot; çatısı altında çalışmalar yürütmek ve projeler üretmek.
                             </p>
                             <p>
-                                Misyonumuz
+                                <span className="text-primary fw-bold">Misyonumuz</span>
                                 <br />
                                 Uluslararası niteliklerde, sektörde öncü olabilecek, teorik ve uygulama becerisi yüksek olan ve bu becerilerini tasarım, üretim, uygulama ve AR-GE çalışmalarında başarılı bir biçimde kullanabilen, analitik düşünebilen, ortak çalışma yapabilecek bireyler yetiştirmesine katkı sağlamak
                             </p>
