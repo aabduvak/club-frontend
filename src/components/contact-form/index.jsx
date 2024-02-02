@@ -14,9 +14,6 @@ const ContactForm = () => {
         try {
             const response = await fetch("https://technovasyon.pythonanywhere.com/api/v1/message", {
                 method: "POST",
-                headers: {
-                    "content-type": "application/json"
-                },
                 body: formData,
             });
 
