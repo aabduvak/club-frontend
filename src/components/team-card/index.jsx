@@ -7,7 +7,7 @@ const TeamCard = ({ data }) => {
                 <img src={data.photo} alt="img" style={{borderRadius: '50%'}} />
             </div>
             <div className="content">
-                <h3 className="title">{data.name}</h3>
+                <h3 className="title fz-16">{data.name}</h3>
                 <span>{data.designation}</span>
             </div>
         </div>

@@ -14,6 +14,7 @@ import "./assets/css/vendor/font-awesome.css";
 import "./assets/css/vendor/material-design-iconic.min.css";
 import "./assets/css/plugins/animate.min.css";
 import "./assets/scss/style.scss";
+import "./assets/css/custom.css"
 
 const App = () => {
     return (
