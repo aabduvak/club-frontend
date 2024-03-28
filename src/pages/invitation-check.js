@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import { useParams } from 'react-router-dom';
 
 const CheckInvitation = () => {
 	const [isRegistered, setIsRegistered] = useState(false);
