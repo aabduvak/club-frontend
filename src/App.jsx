@@ -6,6 +6,8 @@ import TeamPage from "./pages/team";
 import BlogPage from "./pages/blog";
 import Error404 from "./pages/404";
 import ContactPage from "./pages/contact";
+import CheckInvitation from "./pages/invitation-check";
+
 import "swiper/components/navigation/navigation.scss";
 import "swiper/swiper.scss";
 import "./assets/css/vendor/metropolis.css";
@@ -42,6 +44,11 @@ const App = () => {
                         path={`${process.env.PUBLIC_URL + "/blog"}`}
                         component={BlogPage}
                     />
+                    <Route
+                        path={`${process.env.PUBLIC_URL + "/check-registration"}`}
+                        component={CheckInvitation}
+                    />
+
                     <Route
                         path={`*`}
                         component={Error404}
