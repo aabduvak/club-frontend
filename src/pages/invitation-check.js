@@ -20,7 +20,7 @@ const CheckInvitation = () => {
 				throw new Error(`Error checking registration: ${response.statusText}`);
 			}
 			const data = await response.json();
-			console.log(data);
+
 			if (data.id == ticket) {
 				setIsRegistered(true);
 			} else {
