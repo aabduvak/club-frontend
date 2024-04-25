@@ -41,7 +41,7 @@ const App = () => {
                         component={ContactPage}
                     />
                     <Route
-                        path={`${process.env.PUBLIC_URL + "/blog"}`}
+                        path={`${process.env.PUBLIC_URL + "/event"}`}
                         component={BlogPage}
                     />
                     <Route
