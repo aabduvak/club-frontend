@@ -61,7 +61,7 @@ const MobileMenu = ({ show, onClose }) => {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to={process.env.PUBLIC_URL + "/blog"}>
+                                <NavLink to={process.env.PUBLIC_URL + "/event"}>
                                     Etkinlikler
                                 </NavLink>
                             </li>
