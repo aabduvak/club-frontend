@@ -4,7 +4,8 @@ const CheckInvitation = () => {
 	const [isRegistered, setIsRegistered] = useState(false);
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState(null);
-	
+	const [data, setData] = useState(null);
+
 	const search = window.location.search;
 	const params = new URLSearchParams(search);
 	const ticket = params.get('ticket');
@@ -20,6 +21,7 @@ const CheckInvitation = () => {
 				throw new Error(`Error checking registration: ${response.statusText}`);
 			}
 			const data = await response.json();
+			setData(data);
 
 			if (data.id == ticket) {
 				setIsRegistered(true);
@@ -55,11 +57,12 @@ const CheckInvitation = () => {
 	
 	return (
         <React.Fragment>
-			<div style={{ backgroundColor: isRegistered ? 'green' : 'red', display: "flex", flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100vh' }}>
+			<div style={{ backgroundColor: isRegistered ? '#4CE949' : '#C42021', display: "flex", flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100vh' }}>
 				{isRegistered ? (
 					<React.Fragment>
 						<img src={okIcon} alt="Registration Successful" style={{ width: 80, height: 80 }} />
 						<h1 style={{ color: 'white' }} >Hoş Geldiniz!</h1>
+						<h2 style={{ color: 'white', fontWeight: 'bold' }} >{data.name}</h2>
 					</React.Fragment>
 				) : (
 					<React.Fragment>
